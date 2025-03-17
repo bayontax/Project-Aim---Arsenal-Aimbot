@@ -4,7 +4,7 @@ local Players = game:GetService("Players")
 local LocalPlayer = Players.LocalPlayer
 local Camera = game.Workspace.CurrentCamera
 
-local aiming = false
+local aiming = true -- Aimbot is always active
 
 local function getVisibleEnemy()
     local closestPlayer = nil
@@ -61,15 +61,3 @@ local function updateCamera()
 end
 
 RunService.RenderStepped:Connect(updateCamera)
-
-UserInputService.InputBegan:Connect(function(input)
-    if input.KeyCode == Enum.KeyCode.E then
-        aiming = true
-    end
-end)
-
-UserInputService.InputEnded:Connect(function(input)
-    if input.KeyCode == Enum.KeyCode.E then
-        aiming = false
-    end
-end)
